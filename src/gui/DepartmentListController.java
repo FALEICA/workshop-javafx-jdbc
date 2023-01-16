@@ -14,26 +14,26 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
+import model.entities.Department;
 import model.servicos.DepartamentoServicos;
-import modelo.entidades.Departamento;
 
 public class DepartmentListController implements Initializable {
 	
 	private DepartamentoServicos servico;
 	
 	@FXML
-	private TableView<Departamento> tableViewDepartamento;
+	private TableView<Department> tableViewDepartamento;
 	
 	@FXML
-	private TableColumn<Departamento, Integer> tableColumnId;
+	private TableColumn<Department, Integer> tableColumnId;
 	
 	@FXML
-	private TableColumn<Departamento, String> tableColumnName;
+	private TableColumn<Department, String> tableColumnName;
 	
 	@FXML
 	private Button btnNovo;
 	
-	private ObservableList<Departamento> obsList;
+	private ObservableList<Department> obsList;
 	
 	
 	@FXML
@@ -81,7 +81,7 @@ public class DepartmentListController implements Initializable {
 			throw new IllegalStateException("Servico esta null");
 					
 		}
-		List<Departamento> list = servico.buscaTodos();
+		List<Department> list = servico.buscaTodos();
 		obsList = FXCollections.observableArrayList(list);
 		tableViewDepartamento.setItems(obsList);
 	}
