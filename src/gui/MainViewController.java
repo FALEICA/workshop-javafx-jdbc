@@ -17,6 +17,7 @@ import javafx.scene.control.MenuItem;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.layout.VBox;
 import model.servicos.DepartamentoServicos;
+import model.servicos.SellerService;
 
 public class MainViewController implements Initializable {
 
@@ -31,7 +32,16 @@ public class MainViewController implements Initializable {
 
 	@FXML
 	public void onMenuItemVendedorAction() {
-		System.out.println("vendedor oK!!!!");
+		SellerService serv = new SellerService();
+		System.out.println(serv.buscaTodos().toString());
+		
+		
+			
+		loadView("/gui/SellerList.fxml", (SellerListController controller)->{
+		controller.setSellerServico(new SellerService());
+		controller.atualizaTableView();
+		});
+		
 
 	}
 
